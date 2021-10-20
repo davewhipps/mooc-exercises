@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[22]:
 
 
 # The function written in this cell will actually be ran on your robot (sim or real). 
@@ -19,15 +19,15 @@ def DeltaPhi(encoder_msg, prev_ticks):
             rotation_wheel: Rotation of the wheel in radians (double)
             ticks: current number of ticks (int)
     """
-    
-    # TODO: these are random values, you have to implement your own solution in here
-    ticks = prev_ticks + int(np.random.uniform(0, 10))     
-    delta_phi = np.random.random()
+    ticks = encoder_msg.data #how do I get this from the ROS enum?
+    delta_ticks = ticks-prev_ticks    
+    N_tot = encoder_msg.resolution #total number of ticks per wheel revolution
+    alpha = 2*np.pi/N_tot # rotation per tick in radians 
+    delta_phi = alpha*delta_ticks # in radians
 
     return delta_phi, ticks
 
-
-# In[ ]:
+# In[28]:
 
 
 # The function written in this cell will actually be ran on your robot (sim or real). 
@@ -52,11 +52,19 @@ def poseEstimation( R, # radius of wheel (assumed identical) - this is fixed in 
         Returns x,y,theta current estimates:
             x_curr, y_curr, theta_curr (:double: values)
     """
+    #distance wheels have travelled in robot frame
+    d_left = R*delta_phi_left
+    d_right = R*delta_phi_right
+    dtheta = (d_right-d_left)/baseline_wheel2wheel # [radians]
     
-    # TODO: these are random values, you have to implement your own solution in here
-    x_curr = np.random.random() 
-    y_curr = np.random.random() 
-    theta_curr = np.random.random() 
+    # Distance travelled in world frame
+    d_A = (d_left + d_right)/2
+    dx = d_A * np.cos(theta_prev)
+    dy = d_A * np.sin(theta_prev)
+    
+    # New position in world frame
+    x_curr = x_prev + dx
+    y_curr = y_prev + dy
+    theta_curr = theta_prev + dtheta
 
     return x_curr, y_curr, theta_curr
-

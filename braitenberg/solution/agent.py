@@ -26,7 +26,7 @@ from preprocessing import preprocess
 # TODO edit this Config class ! Play with different gain and const values
 @dataclass
 class BraitenbergAgentConfig:
-    gain: float = 0.8
+    gain: float = 0.3
     const: float = 0.1
 
 
@@ -63,7 +63,7 @@ class BraitenbergAgent:
             context.info("received first observations")
         self.rgb = dcu.bgr_from_rgb(dcu.bgr_from_jpg(camera.jpg_data))
 
-    def compute_commands(self) -> Tuple[float, float]:
+    def compute_commands(self, context: Context) -> Tuple[float, float]:
         """ Returns the commands (pwm_left, pwm_right) """
         # If we have not received any image, we don't move
         if self.rgb is None:
@@ -93,16 +93,21 @@ class BraitenbergAgent:
         # now rescale from 0 to 1
         ls = rescale(l, self.l_min, self.l_max)
         rs = rescale(r, self.r_min, self.r_max)
-
+           
         gain = self.config.gain
         const = self.config.const
         pwm_left = const + ls * gain
         pwm_right = const + rs * gain
 
+        # turn on a dime until we see something, so we don't drive off the map
+        if (l == 0) and (r == 0):
+            pwm_left = ls * 0 # zoolander
+            context.info("zeros!!!!!!!!!")
+       
         return pwm_left, pwm_right
 
     def on_received_get_commands(self, context: Context, data: GetCommands):
-        pwm_left, pwm_right = self.compute_commands()
+        pwm_left, pwm_right = self.compute_commands(context)
 
         col = RGB(0.0, 0.0, 1.0)
         col_left = RGB(pwm_left, pwm_left, 0.0)
