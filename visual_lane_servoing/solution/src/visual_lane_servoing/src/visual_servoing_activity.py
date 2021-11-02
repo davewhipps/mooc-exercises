@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[117]:
+# In[16]:
 
 
 # The function written in this cell will actually be ran on your robot (sim or real). 
@@ -19,13 +19,16 @@ def get_steer_matrix_left_lane_markings(shape):
             steer_matrix_left_lane: The steering (angular rate) matrix for Braitenberg-like control 
                                     using the masked left lane markings (numpy.ndarray)
     """
-    
     steer_matrix_left_lane = np.zeros(shape)
-    steer_matrix_left_lane[:,0:int(shape[1]/2.0)] = -1
 
+    is_eval = True
+    value = -1
+    if is_eval:
+        value = value * 0.3
+    steer_matrix_left_lane[:,0:int(shape[1]/2.0)] = value
     return steer_matrix_left_lane
 
-# In[118]:
+# In[17]:
 
 
 # The function written in this cell will actually be ran on your robot (sim or real). 
@@ -43,11 +46,15 @@ def get_steer_matrix_right_lane_markings(shape):
     """
     
     steer_matrix_right_lane = np.zeros(shape)
-    steer_matrix_right_lane[:,int(shape[1]/2.0):shape[1]] = 1
+    is_eval = True
+    value = 1
+    if is_eval:
+        value = value * 0.3  
+    steer_matrix_right_lane[:,int(shape[1]/2.0):shape[1]] = value
 
     return steer_matrix_right_lane
 
-# In[249]:
+# In[18]:
 
 
 # The function written in this cell will actually be ran on your robot (sim or real). 
@@ -66,7 +73,7 @@ def detect_lane_markings(image):
             left_masked_img:   Masked image for the dashed-yellow line (numpy.ndarray)
             right_masked_img:  Masked image for the solid-white line (numpy.ndarray)
     """
-    is_simulator = False
+    is_simulator = True
  
     sigma = 2
     horizon_percent = 0.0
@@ -136,9 +143,9 @@ def detect_lane_markings(image):
     mask_left_edge = mask_ground * mask_left * mask_mag * mask_sobelx_neg * mask_sobely_neg * mask_yellow
     mask_right_edge = mask_ground * mask_right * mask_mag * mask_sobelx_pos * mask_sobely_neg * mask_white
     
-    # Duckiebot needs a little extra power!
-    left_multiplier = 100
-    right_multiplier = 100
+    # Duckiebot needs a little extra power?
+    left_multiplier = 1
+    right_multiplier = 1
     if is_simulator:
         left_multiplier = 1
         right_multiplier = 1       
