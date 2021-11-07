@@ -121,9 +121,6 @@ def detect_lane_markings(image):
 
     # Compute the magnitude of the gradients
     Gmag = np.sqrt(sobelx*sobelx + sobely*sobely)
-
-    # Compute the orientation of the gradients
-    Gdir = cv2.phase(np.array(sobelx, np.float32), np.array(sobely, dtype=np.float32), angleInDegrees=True)
     
     # TODO: Is this really a good value for the threshold?
     mask_mag = (Gmag > threshold)
