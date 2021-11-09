@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[16]:
+# In[19]:
 
 
 # The function written in this cell will actually be ran on your robot (sim or real). 
@@ -21,14 +21,16 @@ def get_steer_matrix_left_lane_markings(shape):
     """
     steer_matrix_left_lane = np.zeros(shape)
 
-    is_eval = True
-    value = -1
+    is_eval = False
+    value = -3.4
     if is_eval:
-        value = value * 0.3
+        value = -0.3
+    
     steer_matrix_left_lane[:,0:int(shape[1]/2.0)] = value
+                
     return steer_matrix_left_lane
 
-# In[17]:
+# In[ ]:
 
 
 # The function written in this cell will actually be ran on your robot (sim or real). 
@@ -46,15 +48,16 @@ def get_steer_matrix_right_lane_markings(shape):
     """
     
     steer_matrix_right_lane = np.zeros(shape)
-    is_eval = True
+    is_eval = False
     value = 1
     if is_eval:
-        value = value * 0.3  
+        value = 0.3  
+    
     steer_matrix_right_lane[:,int(shape[1]/2.0):shape[1]] = value
-
+                
     return steer_matrix_right_lane
 
-# In[18]:
+# In[ ]:
 
 
 # The function written in this cell will actually be ran on your robot (sim or real). 
@@ -73,15 +76,17 @@ def detect_lane_markings(image):
             left_masked_img:   Masked image for the dashed-yellow line (numpy.ndarray)
             right_masked_img:  Masked image for the solid-white line (numpy.ndarray)
     """
-    is_simulator = True
+    is_simulator = False
  
-    sigma = 2
+    sigma = 3
     horizon_percent = 0.0
-    threshold = 50
-    white_lower_hsv = np.array([(0)*179, (0)*255, (35/100)*255])
-    white_upper_hsv = np.array([(260/360)*179, (20/100)*255, (100/100)*255])
+    threshold = 40
+
+    white_lower_hsv = np.array([(0)*179, (0)*255, (60/100)*255])
+    white_upper_hsv = np.array([(360/360)*179, (25/100)*255, (100/100)*255])
+    
     yellow_lower_hsv = np.array([(40/360)*179, (45/100)*255, (45/100)*255])
-    yellow_upper_hsv = np.array([(60/360)*179, (100/100)*255, (90/100)*255])
+    yellow_upper_hsv = np.array([(60/360)*179, (100/100)*255, (100/100)*255])
 
     #Many of the above dont work well for the simulated images
     if is_simulator:
