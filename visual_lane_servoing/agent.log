@@ -1,0 +1,778 @@
+==> Entrypoint
+Network configured successfully.
+WARNING: robot_type file does not exist. Using 'duckiebot' as default type.
+WARNING: robot_configuration file does not exist.
+WARNING: robot_hardware file does not exist.
+Forcing ROS_MASTER_URI=http://localhost:11311
+<== Entrypoint
+... logging to /root/.ros/log/21384456-3fe3-11ec-a750-0242ac110003/roslaunch-48eb7955f62c-53.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;roscore
+[1mstarted roslaunch server http://172.17.0.3:35175/[0m
+ros_comm version 1.15.13
+
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: noetic
+ * /rosversion: 1.15.13
+
+NODES
+
+auto-starting new master
+[1mprocess[master]: started with pid [139][0m
+roscore/master is not yet running, will wait for it to start
+roscore/master is not yet running, will wait for it to start
+roscore/master is not yet running, will wait for it to start
+master has started, initiating launch
+master has started, initiating launch
+master has started, initiating launch
+[1mROS_MASTER_URI=http://172.17.0.3:11311/[0m
+]2;roscore http://172.17.0.3:11311/
+[1msetting /run_id to 21384456-3fe3-11ec-a750-0242ac110003[0m
+... logging to /tmp/log/21384456-3fe3-11ec-a750-0242ac110003/roslaunch-48eb7955f62c-129.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/code/submission_ws/src/agent/launch/agent_node.launch
+... logging to /tmp/log/21384456-3fe3-11ec-a750-0242ac110003/roslaunch-48eb7955f62c-130.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/code/catkin_ws/src/dt-car-interface/packages/car_interface/launch/all.launch
+... logging to /tmp/log/21384456-3fe3-11ec-a750-0242ac110003/roslaunch-48eb7955f62c-131.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/code/solution/src/visual_lane_servoing/launch/visual_lane_servoing_node.launch
+[1mprocess[rosout-1]: started with pid [161][0m
+started core service [/rosout]
+[1mstarted roslaunch server http://172.17.0.3:33145/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: noetic
+ * /rosversion: 1.15.13
+
+NODES
+  /
+    agent_node (agent/solution.py)
+
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/code/submission_ws/src/agent/launch/agent_node.launch http://localhost:11311
+[1mprocess[agent_node-1]: started with pid [179][0m
+[1mstarted roslaunch server http://172.17.0.3:45141/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /hal9003/AIDO_eval: True
+ * /hal9003/rectifier_node/alpha: 0.0
+ * /hal9003/rectifier_node/publish_freq: -1.0
+ * /rosdistro: noetic
+ * /rosversion: 1.15.13
+
+NODES
+  /hal9003/
+    rectifier_node (image_processing/rectifier_node.py)
+    visual_lane_servoing_node (visual_lane_servoing/visual_lane_servoing_node.py)
+
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/code/solution/src/visual_lane_servoing/launch/visual_lane_servoing_node.launch http://localhost:11311
+[1mprocess[hal9003/visual_lane_servoing_node-1]: started with pid [188][0m
+[1mprocess[hal9003/rectifier_node-2]: started with pid [189][0m
+[1mstarted roslaunch server http://172.17.0.3:46303/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /hal9003/car_cmd_switch_node/mappings/ARRIVE_AT_STOP_LINE: stop
+ * /hal9003/car_cmd_switch_node/mappings/AVOID_OBSTACLE: obstacle
+ * /hal9003/car_cmd_switch_node/mappings/AVOID_VEHICLE: vehicle
+ * /hal9003/car_cmd_switch_node/mappings/CALIBRATING: calib
+ * /hal9003/car_cmd_switch_node/mappings/CALIBRATING_CALC: calib_calc
+ * /hal9003/car_cmd_switch_node/mappings/CHARGING_FIRST_IN_LINE: stop
+ * /hal9003/car_cmd_switch_node/mappings/DEEP_LANE_FOLLOWING: deep_learning
+ * /hal9003/car_cmd_switch_node/mappings/INTERSECTION_CONTROL: intersection
+ * /hal9003/car_cmd_switch_node/mappings/INTERSECTION_COORDINATION: stop
+ * /hal9003/car_cmd_switch_node/mappings/INTERSECTION_PLANNING: stop
+ * /hal9003/car_cmd_switch_node/mappings/INTERSECTION_RECOVERY: recovery
+ * /hal9003/car_cmd_switch_node/mappings/IN_CHARGING_AREA: vehicle
+ * /hal9003/car_cmd_switch_node/mappings/LANE_FOLLOWING: lane
+ * /hal9003/car_cmd_switch_node/mappings/LANE_FOLLOWING_AVOID: lane
+ * /hal9003/car_cmd_switch_node/mappings/LANE_RECOVERY: recovery
+ * /hal9003/car_cmd_switch_node/mappings/LOCALIZATION: stop
+ * /hal9003/car_cmd_switch_node/mappings/NORMAL_JOYSTICK_CONTROL: joystick
+ * /hal9003/car_cmd_switch_node/mappings/OBSTACLE_ALERT: lane
+ * /hal9003/car_cmd_switch_node/mappings/OBSTACLE_STOP: stop
+ * /hal9003/car_cmd_switch_node/mappings/PARALLEL_AUTONOMY: parallel_autonomy
+ * /hal9003/car_cmd_switch_node/mappings/PARKING: parking
+ * /hal9003/car_cmd_switch_node/mappings/SAFE_JOYSTICK_CONTROL: parallel_autonomy
+ * /hal9003/car_cmd_switch_node/mode_topic: fsm_node/mode
+ * /hal9003/car_cmd_switch_node/source_topics/calib: auto_calibration_...
+ * /hal9003/car_cmd_switch_node/source_topics/calib_calc: auto_calibration_...
+ * /hal9003/car_cmd_switch_node/source_topics/coordination: coordinator_node/...
+ * /hal9003/car_cmd_switch_node/source_topics/deep_learning: duckiebot_il_lane...
+ * /hal9003/car_cmd_switch_node/source_topics/intersection: lane_controller_n...
+ * /hal9003/car_cmd_switch_node/source_topics/joystick: joy_mapper_node/c...
+ * /hal9003/car_cmd_switch_node/source_topics/lane: lane_controller_n...
+ * /hal9003/car_cmd_switch_node/source_topics/obstacle: simple_stop_contr...
+ * /hal9003/car_cmd_switch_node/source_topics/parallel_autonomy: lane_supervisor_n...
+ * /hal9003/car_cmd_switch_node/source_topics/parking: lane_controller_n...
+ * /hal9003/car_cmd_switch_node/source_topics/recovery: lane_recovery_nod...
+ * /hal9003/car_cmd_switch_node/source_topics/stop: simple_stop_contr...
+ * /hal9003/joy_mapper_node/bicycle_kinematics: 0
+ * /hal9003/joy_mapper_node/simulated_vehicle_length: 0.18
+ * /hal9003/joy_mapper_node/speed_gain: 0.41
+ * /hal9003/joy_mapper_node/steer_gain: 8.3
+ * /hal9003/kinematics_node/baseline: 0.1
+ * /hal9003/kinematics_node/gain: 1.0
+ * /hal9003/kinematics_node/k: 27.0
+ * /hal9003/kinematics_node/limit: 1.0
+ * /hal9003/kinematics_node/omega_max: 8.0
+ * /hal9003/kinematics_node/radius: 0.0318
+ * /hal9003/kinematics_node/trim: 0.0
+ * /hal9003/kinematics_node/v_max: 1.0
+ * /rosdistro: noetic
+ * /rosversion: 1.15.13
+
+NODES
+  /hal9003/
+    car_cmd_switch_node (dagu_car/car_cmd_switch_node.py)
+    joy_mapper_node (joy_mapper/joy_mapper_node.py)
+    kinematics_node (dagu_car/kinematics_node.py)
+    velocity_to_pose_node (dagu_car/velocity_to_pose_node.py)
+
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/code/catkin_ws/src/dt-car-interface/packages/car_interface/launch/all.launch http://localhost:11311
+[1mprocess[hal9003/joy_mapper_node-1]: started with pid [199][0m
+[1mprocess[hal9003/kinematics_node-2]: started with pid [200][0m
+[1mprocess[hal9003/velocity_to_pose_node-3]: started with pid [201][0m
+[1mprocess[hal9003/car_cmd_switch_node-4]: started with pid [202][0m
+DEBUG:commons:version: 6.2.4 *
+DEBUG:typing:version: 6.2.3
+DEBUG:aido_schemas:aido-protocols version 6.0.59 path /usr/local/lib/python3.8/dist-packages
+DEBUG:nodes:version 6.2.13 path /usr/local/lib/python3.8/dist-packages pyparsing 2.4.6
+[32m[DEBUG] [1636300533.815096]: init_node, name[/hal9003/visual_lane_servoing_node], pid[188]
+[0m[32m[DEBUG] [1636300533.818791]: init_node, name[/hal9003/rectifier_node], pid[189]
+[0m[32m[DEBUG] [1636300533.821154]: binding to 0.0.0.0 0
+[0m[32m[DEBUG] [1636300533.823287]: bound to 0.0.0.0 37083
+[0m[32m[DEBUG] [1636300533.829758]: ... service URL is rosrpc://172.17.0.3:37083
+[0m[32m[DEBUG] [1636300533.831318]: binding to 0.0.0.0 0
+[0m[32m[DEBUG] [1636300533.867270]: bound to 0.0.0.0 37279
+[0m[32m[DEBUG] [1636300533.869475]: [/hal9003/visual_lane_servoing_node/get_loggers]: new Service instance
+[0m[32m[DEBUG] [1636300533.875740]: ... service URL is rosrpc://172.17.0.3:37083
+[0m[32m[DEBUG] [1636300533.877955]: [/hal9003/visual_lane_servoing_node/set_logger_level]: new Service instance
+[0m[32m[DEBUG] [1636300533.881287]: ... service URL is rosrpc://172.17.0.3:37279
+[0m[INFO] [1636300533.898298]: [/hal9003/visual_lane_servoing_node] Initializing...
+[32m[DEBUG] [1636300533.899960]: [/hal9003/rectifier_node/get_loggers]: new Service instance
+[0m[32m[DEBUG] [1636300533.910102]: ... service URL is rosrpc://172.17.0.3:37279
+[0m[32m[DEBUG] [1636300533.912585]: [/hal9003/rectifier_node/set_logger_level]: new Service instance
+[0m[INFO] [1636300533.916545]: [/hal9003/rectifier_node] Initializing...
+[32m[DEBUG] [1636300533.966141]: ... service URL is rosrpc://172.17.0.3:37083
+[0m[32m[DEBUG] [1636300533.968776]: [/hal9003/visual_lane_servoing_node/switch]: new Service instance
+[0m[32m[DEBUG] [1636300533.976995]: ... service URL is rosrpc://172.17.0.3:37083
+[0m[32m[DEBUG] [1636300533.979326]: [/hal9003/visual_lane_servoing_node/get_parameters_list]: new Service instance
+[0m[32m[DEBUG] [1636300533.986224]: ... service URL is rosrpc://172.17.0.3:37083
+[0m[32m[DEBUG] [1636300533.995068]: [/hal9003/visual_lane_servoing_node/request_parameters_update]: new Service instance
+[0m[32m[DEBUG] [1636300533.990445]: ... service URL is rosrpc://172.17.0.3:37279
+[0m[32m[DEBUG] [1636300534.004699]: [/hal9003/rectifier_node/switch]: new Service instance
+[0m[32m[DEBUG] [1636300534.015769]: ... service URL is rosrpc://172.17.0.3:37279
+[0m[32m[DEBUG] [1636300534.020051]: [/hal9003/rectifier_node/get_parameters_list]: new Service instance
+[0m[32m[DEBUG] [1636300534.032964]: ... service URL is rosrpc://172.17.0.3:37279
+[0m[32m[DEBUG] [1636300534.039300]: [/hal9003/rectifier_node/request_parameters_update]: new Service instance
+[0m[INFO] [1636300534.044050]: [/hal9003/visual_lane_servoing_node] Health status changed [STARTING] -> [STARTED]
+[INFO] [1636300534.050903]: [/hal9003/visual_lane_servoing_node] Initializing...
+[INFO] [1636300534.061288]: [/hal9003/visual_lane_servoing_node] AIDO EVAL VAR: True
+[INFO] [1636300534.065107]: [/hal9003/visual_lane_servoing_node] Starting evaluation for Visual Lane Servoing.
+[INFO] [1636300534.098838]: [/hal9003/rectifier_node] Health status changed [STARTING] -> [STARTED]
+[32m[DEBUG] [1636300534.107864]: Parameter "/hal9003/rectifier_node/publish_freq" was registered for updates
+[0m[32m[DEBUG] [1636300534.122762]: Parameter "/hal9003/rectifier_node/alpha" was registered for updates
+[0m[INFO] [1636300534.128546]: [/hal9003/visual_lane_servoing_node] Initializing...
+[32m[DEBUG] [1636300534.177997]: node[/hal9003/rectifier_node, http://172.17.0.3:44627/] entering spin(), pid[189]
+[0m[32m[DEBUG] [1636300534.191755]: connecting to 172.17.0.3 37279
+[0m[32m[DEBUG] [1636300534.200531]: init_node, name[/hal9003/car_cmd_switch_node], pid[202]
+[0m[32m[DEBUG] [1636300534.203646]: binding to 0.0.0.0 0
+[0m[32m[DEBUG] [1636300534.206897]: bound to 0.0.0.0 35199
+[0m[32m[DEBUG] [1636300534.210456]: ... service URL is rosrpc://172.17.0.3:35199
+[0m[32m[DEBUG] [1636300534.212928]: [/hal9003/car_cmd_switch_node/get_loggers]: new Service instance
+[0m[32m[DEBUG] [1636300534.217105]: ... service URL is rosrpc://172.17.0.3:35199
+[0m[32m[DEBUG] [1636300534.219820]: [/hal9003/car_cmd_switch_node/set_logger_level]: new Service instance
+[0m[INFO] [1636300534.224613]: [/hal9003/car_cmd_switch_node] Initializing...
+[32m[DEBUG] [1636300534.258560]: ... service URL is rosrpc://172.17.0.3:35199
+[0m[32m[DEBUG] [1636300534.268341]: init_node, name[/hal9003/joy_mapper_node], pid[199]
+[0m[32m[DEBUG] [1636300534.273561]: binding to 0.0.0.0 0
+[0m[32m[DEBUG] [1636300534.275884]: [/hal9003/car_cmd_switch_node/switch]: new Service instance
+[0m[32m[DEBUG] [1636300534.276805]: bound to 0.0.0.0 36533
+[0m[32m[DEBUG] [1636300534.280955]: ... service URL is rosrpc://172.17.0.3:36533
+[0m[32m[DEBUG] [1636300534.284362]: [/hal9003/joy_mapper_node/get_loggers]: new Service instance
+[0m[32m[DEBUG] [1636300534.285202]: ... service URL is rosrpc://172.17.0.3:35199
+[0m[32m[DEBUG] [1636300534.290385]: ... service URL is rosrpc://172.17.0.3:36533
+[0m[32m[DEBUG] [1636300534.290382]: [/hal9003/car_cmd_switch_node/get_parameters_list]: new Service instance
+[0m[32m[DEBUG] [1636300534.294992]: [/hal9003/joy_mapper_node/set_logger_level]: new Service instance
+[0m[32m[DEBUG] [1636300534.298722]: ... service URL is rosrpc://172.17.0.3:35199
+[0m[INFO] [1636300534.299934]: [/hal9003/joy_mapper_node] Initializing...
+[32m[DEBUG] [1636300534.310513]: [/hal9003/car_cmd_switch_node/request_parameters_update]: new Service instance
+[0m[32m[DEBUG] [1636300534.327930]: ... service URL is rosrpc://172.17.0.3:36533
+[0m[32m[DEBUG] [1636300534.332643]: init_node, name[/hal9003/kinematics_node], pid[200]
+[0m[32m[DEBUG] [1636300534.333428]: [/hal9003/joy_mapper_node/switch]: new Service instance
+[0m[32m[DEBUG] [1636300534.336270]: binding to 0.0.0.0 0
+[0m[32m[DEBUG] [1636300534.339764]: ... service URL is rosrpc://172.17.0.3:36533
+[0m[32m[DEBUG] [1636300534.339791]: bound to 0.0.0.0 46305
+[0m[32m[DEBUG] [1636300534.342907]: [/hal9003/joy_mapper_node/get_parameters_list]: new Service instance
+[0m[32m[DEBUG] [1636300534.343092]: ... service URL is rosrpc://172.17.0.3:46305
+[0m[INFO] [1636300534.348012]: [/hal9003/car_cmd_switch_node] Health status changed [STARTING] -> [STARTED]
+[32m[DEBUG] [1636300534.350690]: ... service URL is rosrpc://172.17.0.3:36533
+[0m[32m[DEBUG] [1636300534.355334]: [/hal9003/kinematics_node/get_loggers]: new Service instance
+[0m[32m[DEBUG] [1636300534.360463]: [/hal9003/joy_mapper_node/request_parameters_update]: new Service instance
+[0m[32m[DEBUG] [1636300534.368326]: ... service URL is rosrpc://172.17.0.3:46305
+[0m[32m[DEBUG] [1636300534.381608]: [/hal9003/kinematics_node/set_logger_level]: new Service instance
+[0m[INFO] [1636300534.386240]: [/hal9003/joy_mapper_node] Health status changed [STARTING] -> [STARTED]
+[INFO] [1636300534.388778]: [/hal9003/kinematics_node] Initializing...
+[32m[DEBUG] [1636300534.414902]: ... service URL is rosrpc://172.17.0.3:46305
+[0m[32m[DEBUG] [1636300534.417860]: [/hal9003/kinematics_node/switch]: new Service instance
+[0m[32m[DEBUG] [1636300534.424373]: ... service URL is rosrpc://172.17.0.3:46305
+[0m[32m[DEBUG] [1636300534.427270]: [/hal9003/kinematics_node/get_parameters_list]: new Service instance
+[0m[32m[DEBUG] [1636300534.433251]: ... service URL is rosrpc://172.17.0.3:46305
+[0m[32m[DEBUG] [1636300534.439425]: node[/hal9003/joy_mapper_node, http://172.17.0.3:45857/] entering spin(), pid[199]
+[0m[32m[DEBUG] [1636300534.444243]: [/hal9003/kinematics_node/request_parameters_update]: new Service instance
+[0m[32m[DEBUG] [1636300534.454227]: init_node, name[/hal9003/velocity_to_pose_node], pid[201]
+[0m[32m[DEBUG] [1636300534.468864]: connecting to 172.17.0.3 37083
+[0m[32m[DEBUG] [1636300534.469635]: connecting to 172.17.0.3 36533
+[0m[32m[DEBUG] [1636300534.470668]: binding to 0.0.0.0 0
+[0m[32m[DEBUG] [1636300534.472332]: connecting to 172.17.0.3 36533
+[0m[32m[DEBUG] [1636300534.484682]: bound to 0.0.0.0 40817
+[0m[32m[DEBUG] [1636300534.488284]: ... service URL is rosrpc://172.17.0.3:40817
+[0m[32m[DEBUG] [1636300534.491969]: [/hal9003/velocity_to_pose_node/get_loggers]: new Service instance
+[0m[INFO] [1636300534.497704]: [/hal9003/car_cmd_switch_node] Initialized.
+[INFO] [1636300534.497958]: [/hal9003/kinematics_node] Health status changed [STARTING] -> [STARTED]
+[32m[DEBUG] [1636300534.498877]: ... service URL is rosrpc://172.17.0.3:40817
+[0m[INFO] [1636300534.501348]: [/hal9003/car_cmd_switch_node] Sources:
+	- 'lane': 'lane_controller_node/car_cmd'
+	- 'intersection': 'lane_controller_node/car_cmd'
+	- 'coordination': 'coordinator_node/car_cmd'
+	- 'joystick': 'joy_mapper_node/car_cmd'
+	- 'obstacle': 'simple_stop_controller_node/car_cmd'
+	- 'parallel_autonomy': 'lane_supervisor_node/car_cmd'
+	- 'recovery': 'lane_recovery_node/car_cmd'
+	- 'deep_learning': 'duckiebot_il_lane_following/car_cmd'
+	- 'parking': 'lane_controller_node/car_cmd'
+	- 'calib': 'auto_calibration_node/car_cmd'
+	- 'calib_calc': 'auto_calibration_calculation_node/car_cmd'
+	- 'stop': 'simple_stop_controller_node/car_cmd'
+[32m[DEBUG] [1636300534.501559]: [/hal9003/velocity_to_pose_node/set_logger_level]: new Service instance
+[0m[INFO] [1636300534.508117]: [/hal9003/velocity_to_pose_node] Initializing...
+[32m[DEBUG] [1636300534.515177]: node[/hal9003/car_cmd_switch_node, http://172.17.0.3:41399/] entering spin(), pid[202]
+[0m[32m[DEBUG] [1636300534.535121]: ... service URL is rosrpc://172.17.0.3:40817
+[0m[32m[DEBUG] [1636300534.537611]: [/hal9003/velocity_to_pose_node/switch]: new Service instance
+[0m[32m[DEBUG] [1636300534.543750]: ... service URL is rosrpc://172.17.0.3:40817
+[0m[32m[DEBUG] [1636300534.549167]: [/hal9003/velocity_to_pose_node/get_parameters_list]: new Service instance
+[0m[32m[DEBUG] [1636300534.555593]: ... service URL is rosrpc://172.17.0.3:40817
+[0m[32m[DEBUG] [1636300534.558365]: [/hal9003/velocity_to_pose_node/request_parameters_update]: new Service instance
+[0m[32m[DEBUG] [1636300534.568417]: Parameter "/hal9003/kinematics_node/gain" was registered for updates
+[0m[32m[DEBUG] [1636300534.582334]: Parameter "/hal9003/kinematics_node/trim" was registered for updates
+[0m[32m[DEBUG] [1636300534.588558]: Parameter "/hal9003/kinematics_node/limit" was registered for updates
+[0m[INFO] [1636300534.590880]: [/hal9003/velocity_to_pose_node] Health status changed [STARTING] -> [STARTED]
+[32m[DEBUG] [1636300534.595939]: Parameter "/hal9003/kinematics_node/baseline" was registered for updates
+[0m[INFO] [1636300534.604131]: [/hal9003/velocity_to_pose_node] Initialized.
+[32m[DEBUG] [1636300534.608237]: node[/hal9003/velocity_to_pose_node, http://172.17.0.3:46691/] entering spin(), pid[201]
+[0m[32m[DEBUG] [1636300534.611979]: Parameter "/hal9003/kinematics_node/radius" was registered for updates
+[0m[32m[DEBUG] [1636300534.619077]: Parameter "/hal9003/kinematics_node/v_max" was registered for updates
+[0m[32m[DEBUG] [1636300534.623806]: Parameter "/hal9003/kinematics_node/omega_max" was registered for updates
+[0m[32m[DEBUG] [1636300534.625641]: ... service URL is rosrpc://172.17.0.3:46305
+[0m[32m[DEBUG] [1636300534.627568]: [/hal9003/kinematics_node/save_calibration]: new Service instance
+[0m[32m[DEBUG] [1636300534.648527]: connecting to 172.17.0.3 35199
+[0m[INFO] [1636300534.650959]: [/hal9003/kinematics_node] Initialized with: 
+{
+    "baseline": 0.11,
+    "gain": 1.0,
+    "k": 27.0,
+    "limit": 1.0,
+    "omega_max": 8.0,
+    "radius": 0.0318,
+    "trim": -0.005,
+    "v_max": 1.0
+}
+[32m[DEBUG] [1636300534.666503]: node[/hal9003/kinematics_node, http://172.17.0.3:40243/] entering spin(), pid[200]
+[0m[32m[DEBUG] [1636300534.708661]: connecting to 172.17.0.3 46305
+[0m[INFO] [1636300535.137580]: [/hal9003/visual_lane_servoing_node] Initializing...
+DEBUG:ipce:version 6.1.2 path /usr/local/lib/python3.8/dist-packages
+DEBUG:nodes_wrapper:checking implementation
+DEBUG:nodes_wrapper:checking implementation OK
+DEBUG:nodes_wrapper.ROSTemplateAgent:run_loop
+  fin: [38;5;127m/fifos/ego0-in[0m
+ fout: [38;5;127mfifo:/fifos/ego0-out[0m
+DEBUG:nodes_wrapper:Fifo /fifos/ego0-out created. I will block until a reader appears.
+[INFO] [1636300536.140912]: [/hal9003/visual_lane_servoing_node] Initializing...
+[INFO] [1636300537.146614]: [/hal9003/visual_lane_servoing_node] Initializing...
+[INFO] [1636300538.149667]: [/hal9003/visual_lane_servoing_node] Initializing...
+DEBUG:nodes_wrapper:Fifo reader appeared for /fifos/ego0-out.
+DEBUG:nodes_wrapper.ROSTemplateAgent:Starting reading
+ fi_desc: [38;5;127m/fifos/ego0-in[0m
+ fo_desc: [38;5;127mfifo:/fifos/ego0-out[0m
+INFO:nodes_wrapper.ROSTemplateAgent.data:48eb7955f62c:ROSTemplateAgent: init()
+[32m[DEBUG] [1636300538.402307]: connecting to 172.17.0.3 46399
+[0m[32m[DEBUG] [1636300538.404874]: connecting to 172.17.0.3 46399
+[0m[32m[DEBUG] [1636300538.405854]: connecting to 172.17.0.3 46399
+[0m[32m[DEBUG] [1636300538.466699]: init_node, name[/agent_node], pid[179]
+[0m[32m[DEBUG] [1636300538.468454]: ... service URL is rosrpc://172.17.0.3:46399
+[0m[32m[DEBUG] [1636300538.470390]: [/agent_node/get_loggers]: new Service instance
+[0m[32m[DEBUG] [1636300538.473489]: ... service URL is rosrpc://172.17.0.3:46399
+[0m[32m[DEBUG] [1636300538.475151]: [/agent_node/set_logger_level]: new Service instance
+[0m[INFO] [1636300538.478381]: Just after init_node.
+[INFO] [1636300538.565151]: [/hal9003/visual_lane_servoing_node] Health status changed [STARTED] -> [WARNING]
+[33m[WARN] [1636300538.567143]: [/hal9003/visual_lane_servoing_node] No calibration value received. If you are running this on a real robot or on local simulation you can ignore this message.
+[0m[INFO] [1636300539.039642]: [/hal9003/rectifier_node] Camera info message received. Unsubscribing from camera_info topic.
+[32m[DEBUG] [1636300539.044006]: ERROR: Broken Pipe
+[0m[INFO] [1636300539.153569]: [/hal9003/visual_lane_servoing_node] Initialized!
+[INFO] [1636300539.156764]: [/hal9003/visual_lane_servoing_node] Waiting for the Exercise App "Visual Lane Servoing" to be opened in VNC...
+[32m[DEBUG] [1636300539.163524]: node[/hal9003/visual_lane_servoing_node, http://172.17.0.3:40043/] entering spin(), pid[188]
+[0m[32m[DEBUG] [1636300598.061682]: [/hal9003/episode_start] failed to receive incoming message : unable to receive data from sender, check sender's logs for details
+[0m[32m[DEBUG] [1636300598.063899]: [/hal9003/camera_node/image/compressed] failed to receive incoming message : unable to receive data from sender, check sender's logs for details
+[0m[32m[DEBUG] [1636300598.064989]: [/hal9003/wheels_driver_node/wheels_cmd] failed to receive incoming message : unable to receive data from sender, check sender's logs for details
+[0mTraceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/wrapper.py", line 457, in loop
+    logger.info("benchmark meta", stats=context_meta.profiler.show_stats())
+  File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/profiler.py", line 76, in show_stats
+    raise ZException(msg, prefix=prefix, lines=lines,
+zuper_commons.types.exceptions.ZException: Could not find any *completed* children for prefix
+│ prefix: [38;5;75m([0m[38;5;127mroot[0m,[38;5;75m)[0m
+│  lines: [38;5;75m[][0m
+│  known: [38;5;75m[][0m
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/wrapper.py", line 287, in run_loop
+    loop(my_logger, node_name, fi, fo, node, protocol, tin, tout, config=config, fi_desc=fin,
+  File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/wrapper.py", line 480, in loop
+    raise InternalProblem(msg) from e  # XXX
+zuper_nodes.structures.InternalProblem: Unexpected error:
+
+| Traceback (most recent call last):
+|   File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/wrapper.py", line 457, in loop
+|     logger.info("benchmark meta", stats=context_meta.profiler.show_stats())
+|   File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/profiler.py", line 76, in show_stats
+|     raise ZException(msg, prefix=prefix, lines=lines,
+| zuper_commons.types.exceptions.ZException: Could not find any *completed* children for prefix
+| │ prefix: [38;5;75m([0m[38;5;127mroot[0m,[38;5;75m)[0m
+| │  lines: [38;5;75m[][0m
+| │  known: [38;5;75m[][0m
+| 
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/code/submission_ws/src/agent/src/solution.py", line 107, in <module>
+    wrap_direct(node=node, protocol=protocol, args=[])
+  File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/interface.py", line 25, in wrap_direct
+    run_loop(node, protocol, args)
+  File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/wrapper.py", line 301, in run_loop
+    raise Exception(msg) from e
+Exception: Error in node ROSTemplateAgent
+[31m================================================================================REQUIRED process [agent_node-1] has died!
+process has died [pid 179, exit code 1, cmd /code/submission_ws/src/agent/src/solution.py __name:=agent_node __log:=/tmp/log/21384456-3fe3-11ec-a750-0242ac110003/agent_node-1.log].
+log file: /tmp/log/21384456-3fe3-11ec-a750-0242ac110003/agent_node-1*.log
+Initiating shutdown!
+================================================================================[0m
+[agent_node-1] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m
+==> Entrypoint
+Network configured successfully.
+WARNING: robot_type file does not exist. Using 'duckiebot' as default type.
+WARNING: robot_configuration file does not exist.
+WARNING: robot_hardware file does not exist.
+Forcing ROS_MASTER_URI=http://localhost:11311
+<== Entrypoint
+... logging to /root/.ros/log/ea41d160-3ffb-11ec-80ab-0242ac110003/roslaunch-d7ed4788b6ce-53.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;roscore
+roscore/master is not yet running, will wait for it to start
+[1mstarted roslaunch server http://172.17.0.3:33795/[0m
+ros_comm version 1.15.13
+
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: noetic
+ * /rosversion: 1.15.13
+
+NODES
+
+auto-starting new master
+[1mprocess[master]: started with pid [139][0m
+roscore/master is not yet running, will wait for it to start
+roscore/master is not yet running, will wait for it to start
+master has started, initiating launch
+master has started, initiating launch
+master has started, initiating launch
+[1mROS_MASTER_URI=http://172.17.0.3:11311/[0m
+]2;roscore http://172.17.0.3:11311/
+[1msetting /run_id to ea41d160-3ffb-11ec-80ab-0242ac110003[0m
+... logging to /tmp/log/ea41d160-3ffb-11ec-80ab-0242ac110003/roslaunch-d7ed4788b6ce-130.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/code/catkin_ws/src/dt-car-interface/packages/car_interface/launch/all.launch
+[1mprocess[rosout-1]: started with pid [156][0m
+started core service [/rosout]
+... logging to /tmp/log/ea41d160-3ffb-11ec-80ab-0242ac110003/roslaunch-d7ed4788b6ce-131.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/code/solution/src/visual_lane_servoing/launch/visual_lane_servoing_node.launch
+... logging to /tmp/log/ea41d160-3ffb-11ec-80ab-0242ac110003/roslaunch-d7ed4788b6ce-129.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/code/submission_ws/src/agent/launch/agent_node.launch
+[1mstarted roslaunch server http://172.17.0.3:39853/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /hal9003/AIDO_eval: True
+ * /hal9003/rectifier_node/alpha: 0.0
+ * /hal9003/rectifier_node/publish_freq: -1.0
+ * /rosdistro: noetic
+ * /rosversion: 1.15.13
+
+NODES
+  /hal9003/
+    rectifier_node (image_processing/rectifier_node.py)
+    visual_lane_servoing_node (visual_lane_servoing/visual_lane_servoing_node.py)
+
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/code/solution/src/visual_lane_servoing/launch/visual_lane_servoing_node.launch http://localhost:11311
+[1mprocess[hal9003/visual_lane_servoing_node-1]: started with pid [179][0m
+[1mprocess[hal9003/rectifier_node-2]: started with pid [182][0m
+[1mstarted roslaunch server http://172.17.0.3:35341/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: noetic
+ * /rosversion: 1.15.13
+
+NODES
+  /
+    agent_node (agent/solution.py)
+
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/code/submission_ws/src/agent/launch/agent_node.launch http://localhost:11311
+[1mstarted roslaunch server http://172.17.0.3:33571/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /hal9003/car_cmd_switch_node/mappings/ARRIVE_AT_STOP_LINE: stop
+ * /hal9003/car_cmd_switch_node/mappings/AVOID_OBSTACLE: obstacle
+ * /hal9003/car_cmd_switch_node/mappings/AVOID_VEHICLE: vehicle
+ * /hal9003/car_cmd_switch_node/mappings/CALIBRATING: calib
+ * /hal9003/car_cmd_switch_node/mappings/CALIBRATING_CALC: calib_calc
+ * /hal9003/car_cmd_switch_node/mappings/CHARGING_FIRST_IN_LINE: stop
+ * /hal9003/car_cmd_switch_node/mappings/DEEP_LANE_FOLLOWING: deep_learning
+ * /hal9003/car_cmd_switch_node/mappings/INTERSECTION_CONTROL: intersection
+ * /hal9003/car_cmd_switch_node/mappings/INTERSECTION_COORDINATION: stop
+ * /hal9003/car_cmd_switch_node/mappings/INTERSECTION_PLANNING: stop
+ * /hal9003/car_cmd_switch_node/mappings/INTERSECTION_RECOVERY: recovery
+ * /hal9003/car_cmd_switch_node/mappings/IN_CHARGING_AREA: vehicle
+ * /hal9003/car_cmd_switch_node/mappings/LANE_FOLLOWING: lane
+ * /hal9003/car_cmd_switch_node/mappings/LANE_FOLLOWING_AVOID: lane
+ * /hal9003/car_cmd_switch_node/mappings/LANE_RECOVERY: recovery
+ * /hal9003/car_cmd_switch_node/mappings/LOCALIZATION: stop
+ * /hal9003/car_cmd_switch_node/mappings/NORMAL_JOYSTICK_CONTROL: joystick
+ * /hal9003/car_cmd_switch_node/mappings/OBSTACLE_ALERT: lane
+ * /hal9003/car_cmd_switch_node/mappings/OBSTACLE_STOP: stop
+ * /hal9003/car_cmd_switch_node/mappings/PARALLEL_AUTONOMY: parallel_autonomy
+ * /hal9003/car_cmd_switch_node/mappings/PARKING: parking
+ * /hal9003/car_cmd_switch_node/mappings/SAFE_JOYSTICK_CONTROL: parallel_autonomy
+ * /hal9003/car_cmd_switch_node/mode_topic: fsm_node/mode
+ * /hal9003/car_cmd_switch_node/source_topics/calib: auto_calibration_...
+ * /hal9003/car_cmd_switch_node/source_topics/calib_calc: auto_calibration_...
+ * /hal9003/car_cmd_switch_node/source_topics/coordination: coordinator_node/...
+ * /hal9003/car_cmd_switch_node/source_topics/deep_learning: duckiebot_il_lane...
+ * /hal9003/car_cmd_switch_node/source_topics/intersection: lane_controller_n...
+ * /hal9003/car_cmd_switch_node/source_topics/joystick: joy_mapper_node/c...
+ * /hal9003/car_cmd_switch_node/source_topics/lane: lane_controller_n...
+ * /hal9003/car_cmd_switch_node/source_topics/obstacle: simple_stop_contr...
+ * /hal9003/car_cmd_switch_node/source_topics/parallel_autonomy: lane_supervisor_n...
+ * /hal9003/car_cmd_switch_node/source_topics/parking: lane_controller_n...
+ * /hal9003/car_cmd_switch_node/source_topics/recovery: lane_recovery_nod...
+ * /hal9003/car_cmd_switch_node/source_topics/stop: simple_stop_contr...
+ * /hal9003/joy_mapper_node/bicycle_kinematics: 0
+ * /hal9003/joy_mapper_node/simulated_vehicle_length: 0.18
+ * /hal9003/joy_mapper_node/speed_gain: 0.41
+ * /hal9003/joy_mapper_node/steer_gain: 8.3
+ * /hal9003/kinematics_node/baseline: 0.1
+ * /hal9003/kinematics_node/gain: 1.0
+ * /hal9003/kinematics_node/k: 27.0
+ * /hal9003/kinematics_node/limit: 1.0
+ * /hal9003/kinematics_node/omega_max: 8.0
+ * /hal9003/kinematics_node/radius: 0.0318
+ * /hal9003/kinematics_node/trim: 0.0
+ * /hal9003/kinematics_node/v_max: 1.0
+ * /rosdistro: noetic
+ * /rosversion: 1.15.13
+
+NODES
+  /hal9003/
+    car_cmd_switch_node (dagu_car/car_cmd_switch_node.py)
+    joy_mapper_node (joy_mapper/joy_mapper_node.py)
+    kinematics_node (dagu_car/kinematics_node.py)
+    velocity_to_pose_node (dagu_car/velocity_to_pose_node.py)
+
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/code/catkin_ws/src/dt-car-interface/packages/car_interface/launch/all.launch http://localhost:11311
+[1mprocess[agent_node-1]: started with pid [197][0m
+[1mprocess[hal9003/joy_mapper_node-1]: started with pid [198][0m
+[1mprocess[hal9003/kinematics_node-2]: started with pid [199][0m
+[1mprocess[hal9003/velocity_to_pose_node-3]: started with pid [200][0m
+[1mprocess[hal9003/car_cmd_switch_node-4]: started with pid [201][0m
+DEBUG:commons:version: 6.2.4 *
+DEBUG:typing:version: 6.2.3
+DEBUG:aido_schemas:aido-protocols version 6.0.59 path /usr/local/lib/python3.8/dist-packages
+[32m[DEBUG] [1636311179.238150]: init_node, name[/hal9003/velocity_to_pose_node], pid[200]
+[0m[32m[DEBUG] [1636311179.240537]: binding to 0.0.0.0 0
+[0m[32m[DEBUG] [1636311179.242813]: bound to 0.0.0.0 41221
+[0m[32m[DEBUG] [1636311179.245577]: ... service URL is rosrpc://172.17.0.3:41221
+[0m[32m[DEBUG] [1636311179.259492]: [/hal9003/velocity_to_pose_node/get_loggers]: new Service instance
+[0m[32m[DEBUG] [1636311179.268680]: ... service URL is rosrpc://172.17.0.3:41221
+[0m[32m[DEBUG] [1636311179.273767]: [/hal9003/velocity_to_pose_node/set_logger_level]: new Service instance
+[0m[INFO] [1636311179.280418]: [/hal9003/velocity_to_pose_node] Initializing...
+DEBUG:nodes:version 6.2.13 path /usr/local/lib/python3.8/dist-packages pyparsing 2.4.6
+[32m[DEBUG] [1636311179.295913]: init_node, name[/hal9003/visual_lane_servoing_node], pid[179]
+[0m[32m[DEBUG] [1636311179.303647]: binding to 0.0.0.0 0
+[0m[32m[DEBUG] [1636311179.307496]: bound to 0.0.0.0 42877
+[0m[32m[DEBUG] [1636311179.321442]: ... service URL is rosrpc://172.17.0.3:41221
+[0m[32m[DEBUG] [1636311179.323221]: ... service URL is rosrpc://172.17.0.3:42877
+[0m[32m[DEBUG] [1636311179.326785]: [/hal9003/visual_lane_servoing_node/get_loggers]: new Service instance
+[0m[32m[DEBUG] [1636311179.330387]: [/hal9003/velocity_to_pose_node/switch]: new Service instance
+[0m[32m[DEBUG] [1636311179.336335]: ... service URL is rosrpc://172.17.0.3:42877
+[0m[32m[DEBUG] [1636311179.338408]: init_node, name[/hal9003/rectifier_node], pid[182]
+[0m[32m[DEBUG] [1636311179.342109]: [/hal9003/visual_lane_servoing_node/set_logger_level]: new Service instance
+[0m[32m[DEBUG] [1636311179.343800]: ... service URL is rosrpc://172.17.0.3:41221
+[0m[32m[DEBUG] [1636311179.344474]: binding to 0.0.0.0 0
+[0m[32m[DEBUG] [1636311179.346766]: bound to 0.0.0.0 42205
+[0m[32m[DEBUG] [1636311179.348798]: [/hal9003/velocity_to_pose_node/get_parameters_list]: new Service instance
+[0m[INFO] [1636311179.356683]: [/hal9003/visual_lane_servoing_node] Initializing...
+[32m[DEBUG] [1636311179.362012]: ... service URL is rosrpc://172.17.0.3:42205
+[0m[32m[DEBUG] [1636311179.370382]: ... service URL is rosrpc://172.17.0.3:41221
+[0m[32m[DEBUG] [1636311179.372478]: [/hal9003/rectifier_node/get_loggers]: new Service instance
+[0m[32m[DEBUG] [1636311179.377065]: [/hal9003/velocity_to_pose_node/request_parameters_update]: new Service instance
+[0m[32m[DEBUG] [1636311179.391923]: init_node, name[/hal9003/kinematics_node], pid[199]
+[0m[32m[DEBUG] [1636311179.396376]: binding to 0.0.0.0 0
+[0m[32m[DEBUG] [1636311179.402061]: ... service URL is rosrpc://172.17.0.3:42877
+[0m[32m[DEBUG] [1636311179.402831]: ... service URL is rosrpc://172.17.0.3:42205
+[0m[32m[DEBUG] [1636311179.403791]: bound to 0.0.0.0 42391
+[0m[32m[DEBUG] [1636311179.408493]: [/hal9003/rectifier_node/set_logger_level]: new Service instance
+[0m[32m[DEBUG] [1636311179.411968]: [/hal9003/visual_lane_servoing_node/switch]: new Service instance
+[0m[32m[DEBUG] [1636311179.412715]: ... service URL is rosrpc://172.17.0.3:42391
+[0m[32m[DEBUG] [1636311179.417499]: ... service URL is rosrpc://172.17.0.3:42877
+[0m[32m[DEBUG] [1636311179.419676]: [/hal9003/kinematics_node/get_loggers]: new Service instance
+[0m[32m[DEBUG] [1636311179.420730]: [/hal9003/visual_lane_servoing_node/get_parameters_list]: new Service instance
+[0m[32m[DEBUG] [1636311179.426296]: ... service URL is rosrpc://172.17.0.3:42391
+[0m[32m[DEBUG] [1636311179.428360]: ... service URL is rosrpc://172.17.0.3:42877
+[0m[INFO] [1636311179.434050]: [/hal9003/rectifier_node] Initializing...
+[32m[DEBUG] [1636311179.436005]: [/hal9003/kinematics_node/set_logger_level]: new Service instance
+[0m[32m[DEBUG] [1636311179.437051]: [/hal9003/visual_lane_servoing_node/request_parameters_update]: new Service instance
+[0m[INFO] [1636311179.456986]: [/hal9003/velocity_to_pose_node] Health status changed [STARTING] -> [STARTED]
+[INFO] [1636311179.470165]: [/hal9003/kinematics_node] Initializing...
+[INFO] [1636311179.479217]: [/hal9003/velocity_to_pose_node] Initialized.
+[32m[DEBUG] [1636311179.490752]: node[/hal9003/velocity_to_pose_node, http://172.17.0.3:40899/] entering spin(), pid[200]
+[0m[32m[DEBUG] [1636311179.497050]: ... service URL is rosrpc://172.17.0.3:42205
+[0m[32m[DEBUG] [1636311179.499124]: [/hal9003/rectifier_node/switch]: new Service instance
+[0m[32m[DEBUG] [1636311179.503909]: init_node, name[/hal9003/joy_mapper_node], pid[198]
+[0m[32m[DEBUG] [1636311179.505223]: ... service URL is rosrpc://172.17.0.3:42205
+[0m[32m[DEBUG] [1636311179.506220]: binding to 0.0.0.0 0
+[0m[32m[DEBUG] [1636311179.512717]: ... service URL is rosrpc://172.17.0.3:42391
+[0m[32m[DEBUG] [1636311179.516133]: [/hal9003/rectifier_node/get_parameters_list]: new Service instance
+[0m[32m[DEBUG] [1636311179.517072]: [/hal9003/kinematics_node/switch]: new Service instance
+[0m[INFO] [1636311179.518046]: [/hal9003/visual_lane_servoing_node] Health status changed [STARTING] -> [STARTED]
+[INFO] [1636311179.521452]: [/hal9003/visual_lane_servoing_node] Initializing...
+[32m[DEBUG] [1636311179.521965]: ... service URL is rosrpc://172.17.0.3:42391
+[0m[32m[DEBUG] [1636311179.525905]: bound to 0.0.0.0 40037
+[0m[32m[DEBUG] [1636311179.527533]: [/hal9003/kinematics_node/get_parameters_list]: new Service instance
+[0m[32m[DEBUG] [1636311179.529626]: ... service URL is rosrpc://172.17.0.3:42205
+[0m[32m[DEBUG] [1636311179.530589]: ... service URL is rosrpc://172.17.0.3:40037
+[0m[32m[DEBUG] [1636311179.531747]: [/hal9003/rectifier_node/request_parameters_update]: new Service instance
+[0m[32m[DEBUG] [1636311179.533198]: [/hal9003/joy_mapper_node/get_loggers]: new Service instance
+[0m[32m[DEBUG] [1636311179.537089]: ... service URL is rosrpc://172.17.0.3:40037
+[0m[32m[DEBUG] [1636311179.540371]: [/hal9003/joy_mapper_node/set_logger_level]: new Service instance
+[0m[INFO] [1636311179.546846]: [/hal9003/visual_lane_servoing_node] AIDO EVAL VAR: True
+[INFO] [1636311179.551207]: [/hal9003/joy_mapper_node] Initializing...
+[INFO] [1636311179.552301]: [/hal9003/visual_lane_servoing_node] Starting evaluation for Visual Lane Servoing.
+[32m[DEBUG] [1636311179.555100]: ... service URL is rosrpc://172.17.0.3:42391
+[0m[32m[DEBUG] [1636311179.561314]: [/hal9003/kinematics_node/request_parameters_update]: new Service instance
+[0m[INFO] [1636311179.569808]: [/hal9003/rectifier_node] Health status changed [STARTING] -> [STARTED]
+[32m[DEBUG] [1636311179.573713]: ... service URL is rosrpc://172.17.0.3:40037
+[0m[32m[DEBUG] [1636311179.575676]: [/hal9003/joy_mapper_node/switch]: new Service instance
+[0m[32m[DEBUG] [1636311179.585080]: ... service URL is rosrpc://172.17.0.3:40037
+[0m[32m[DEBUG] [1636311179.589890]: Parameter "/hal9003/rectifier_node/publish_freq" was registered for updates
+[0m[32m[DEBUG] [1636311179.595432]: init_node, name[/hal9003/car_cmd_switch_node], pid[201]
+[0m[INFO] [1636311179.596508]: [/hal9003/visual_lane_servoing_node] Initializing...
+[32m[DEBUG] [1636311179.598111]: [/hal9003/joy_mapper_node/get_parameters_list]: new Service instance
+[0m[INFO] [1636311179.602069]: [/hal9003/kinematics_node] Health status changed [STARTING] -> [STARTED]
+[32m[DEBUG] [1636311179.602754]: binding to 0.0.0.0 0
+[0m[32m[DEBUG] [1636311179.611519]: ... service URL is rosrpc://172.17.0.3:40037
+[0m[32m[DEBUG] [1636311179.612767]: bound to 0.0.0.0 37789
+[0m[32m[DEBUG] [1636311179.618328]: ... service URL is rosrpc://172.17.0.3:37789
+[0m[32m[DEBUG] [1636311179.619355]: Parameter "/hal9003/rectifier_node/alpha" was registered for updates
+[0m[32m[DEBUG] [1636311179.618515]: [/hal9003/joy_mapper_node/request_parameters_update]: new Service instance
+[0m[32m[DEBUG] [1636311179.623049]: [/hal9003/car_cmd_switch_node/get_loggers]: new Service instance
+[0m[32m[DEBUG] [1636311179.628868]: ... service URL is rosrpc://172.17.0.3:37789
+[0m[32m[DEBUG] [1636311179.633194]: [/hal9003/car_cmd_switch_node/set_logger_level]: new Service instance
+[0m[INFO] [1636311179.640048]: [/hal9003/car_cmd_switch_node] Initializing...
+[32m[DEBUG] [1636311179.665322]: node[/hal9003/rectifier_node, http://172.17.0.3:43829/] entering spin(), pid[182]
+[0m[32m[DEBUG] [1636311179.675274]: ... service URL is rosrpc://172.17.0.3:37789
+[0m[INFO] [1636311179.678699]: [/hal9003/joy_mapper_node] Health status changed [STARTING] -> [STARTED]
+[32m[DEBUG] [1636311179.680426]: [/hal9003/car_cmd_switch_node/switch]: new Service instance
+[0m[32m[DEBUG] [1636311179.686195]: ... service URL is rosrpc://172.17.0.3:37789
+[0m[32m[DEBUG] [1636311179.691983]: [/hal9003/car_cmd_switch_node/get_parameters_list]: new Service instance
+[0m[32m[DEBUG] [1636311179.700081]: ... service URL is rosrpc://172.17.0.3:37789
+[0m[32m[DEBUG] [1636311179.709584]: [/hal9003/car_cmd_switch_node/request_parameters_update]: new Service instance
+[0m[32m[DEBUG] [1636311179.712112]: connecting to 172.17.0.3 42205
+[0m[32m[DEBUG] [1636311179.736216]: node[/hal9003/joy_mapper_node, http://172.17.0.3:34709/] entering spin(), pid[198]
+[0m[32m[DEBUG] [1636311179.740163]: Parameter "/hal9003/kinematics_node/gain" was registered for updates
+[0m[32m[DEBUG] [1636311179.746610]: Parameter "/hal9003/kinematics_node/trim" was registered for updates
+[0m[32m[DEBUG] [1636311179.750200]: connecting to 172.17.0.3 40037
+[0m[INFO] [1636311179.753071]: [/hal9003/car_cmd_switch_node] Health status changed [STARTING] -> [STARTED]
+[32m[DEBUG] [1636311179.756557]: Parameter "/hal9003/kinematics_node/limit" was registered for updates
+[0m[32m[DEBUG] [1636311179.764264]: Parameter "/hal9003/kinematics_node/baseline" was registered for updates
+[0m[32m[DEBUG] [1636311179.770808]: Parameter "/hal9003/kinematics_node/radius" was registered for updates
+[0m[32m[DEBUG] [1636311179.779194]: Parameter "/hal9003/kinematics_node/v_max" was registered for updates
+[0m[32m[DEBUG] [1636311179.788648]: Parameter "/hal9003/kinematics_node/omega_max" was registered for updates
+[0m[32m[DEBUG] [1636311179.794616]: ... service URL is rosrpc://172.17.0.3:42391
+[0m[32m[DEBUG] [1636311179.800012]: [/hal9003/kinematics_node/save_calibration]: new Service instance
+[0m[INFO] [1636311179.835113]: [/hal9003/car_cmd_switch_node] Initialized.
+[32m[DEBUG] [1636311179.839811]: connecting to 172.17.0.3 42877
+[0m[32m[DEBUG] [1636311179.840635]: connecting to 172.17.0.3 40037
+[0m[INFO] [1636311179.843960]: [/hal9003/kinematics_node] Initialized with: 
+{
+    "baseline": 0.11,
+    "gain": 1.0,
+    "k": 27.0,
+    "limit": 1.0,
+    "omega_max": 8.0,
+    "radius": 0.0318,
+    "trim": -0.005,
+    "v_max": 1.0
+}
+[INFO] [1636311179.845938]: [/hal9003/car_cmd_switch_node] Sources:
+	- 'lane': 'lane_controller_node/car_cmd'
+	- 'intersection': 'lane_controller_node/car_cmd'
+	- 'coordination': 'coordinator_node/car_cmd'
+	- 'joystick': 'joy_mapper_node/car_cmd'
+	- 'obstacle': 'simple_stop_controller_node/car_cmd'
+	- 'parallel_autonomy': 'lane_supervisor_node/car_cmd'
+	- 'recovery': 'lane_recovery_node/car_cmd'
+	- 'deep_learning': 'duckiebot_il_lane_following/car_cmd'
+	- 'parking': 'lane_controller_node/car_cmd'
+	- 'calib': 'auto_calibration_node/car_cmd'
+	- 'calib_calc': 'auto_calibration_calculation_node/car_cmd'
+	- 'stop': 'simple_stop_controller_node/car_cmd'
+[32m[DEBUG] [1636311179.849108]: connecting to 172.17.0.3 37789
+[0m[32m[DEBUG] [1636311179.856474]: node[/hal9003/car_cmd_switch_node, http://172.17.0.3:42829/] entering spin(), pid[201]
+[0m[32m[DEBUG] [1636311179.859059]: connecting to 172.17.0.3 42391
+[0m[32m[DEBUG] [1636311179.860870]: node[/hal9003/kinematics_node, http://172.17.0.3:46179/] entering spin(), pid[199]
+[0m[INFO] [1636311180.617568]: [/hal9003/visual_lane_servoing_node] Initializing...
+DEBUG:ipce:version 6.1.2 path /usr/local/lib/python3.8/dist-packages
+DEBUG:nodes_wrapper:checking implementation
+DEBUG:nodes_wrapper:checking implementation OK
+DEBUG:nodes_wrapper.ROSTemplateAgent:run_loop
+  fin: [38;5;127m/fifos/ego0-in[0m
+ fout: [38;5;127mfifo:/fifos/ego0-out[0m
+DEBUG:nodes_wrapper:Fifo /fifos/ego0-out created. I will block until a reader appears.
+[INFO] [1636311181.619861]: [/hal9003/visual_lane_servoing_node] Initializing...
+[INFO] [1636311182.623379]: [/hal9003/visual_lane_servoing_node] Initializing...
+[INFO] [1636311183.630047]: [/hal9003/visual_lane_servoing_node] Initializing...
+DEBUG:nodes_wrapper:Fifo reader appeared for /fifos/ego0-out.
+DEBUG:nodes_wrapper.ROSTemplateAgent:Starting reading
+ fi_desc: [38;5;127m/fifos/ego0-in[0m
+ fo_desc: [38;5;127mfifo:/fifos/ego0-out[0m
+INFO:nodes_wrapper.ROSTemplateAgent.data:d7ed4788b6ce:ROSTemplateAgent: init()
+[32m[DEBUG] [1636311184.062807]: connecting to 172.17.0.3 34745
+[0m[32m[DEBUG] [1636311184.063581]: connecting to 172.17.0.3 34745
+[0m[32m[DEBUG] [1636311184.066300]: connecting to 172.17.0.3 34745
+[0m[32m[DEBUG] [1636311184.114985]: init_node, name[/agent_node], pid[197]
+[0m[32m[DEBUG] [1636311184.120171]: ... service URL is rosrpc://172.17.0.3:34745
+[0m[32m[DEBUG] [1636311184.126378]: [/agent_node/get_loggers]: new Service instance
+[0m[32m[DEBUG] [1636311184.137675]: ... service URL is rosrpc://172.17.0.3:34745
+[0m[32m[DEBUG] [1636311184.143063]: [/agent_node/set_logger_level]: new Service instance
+[0m[INFO] [1636311184.153016]: Just after init_node.
+[INFO] [1636311184.280056]: [/hal9003/visual_lane_servoing_node] Health status changed [STARTED] -> [WARNING]
+[33m[WARN] [1636311184.282693]: [/hal9003/visual_lane_servoing_node] No calibration value received. If you are running this on a real robot or on local simulation you can ignore this message.
+[0m[INFO] [1636311184.633849]: [/hal9003/visual_lane_servoing_node] Initialized!
+[INFO] [1636311184.640385]: [/hal9003/visual_lane_servoing_node] Waiting for the Exercise App "Visual Lane Servoing" to be opened in VNC...
+[32m[DEBUG] [1636311184.659171]: node[/hal9003/visual_lane_servoing_node, http://172.17.0.3:46731/] entering spin(), pid[179]
+[0m[INFO] [1636311184.748381]: [/hal9003/rectifier_node] Camera info message received. Unsubscribing from camera_info topic.
+[32m[DEBUG] [1636311184.802300]: ERROR: Broken Pipe
+[0m[32m[DEBUG] [1636311243.190838]: [/hal9003/episode_start] failed to receive incoming message : unable to receive data from sender, check sender's logs for details
+[0m[32m[DEBUG] [1636311243.193614]: [/hal9003/wheels_driver_node/wheels_cmd] failed to receive incoming message : unable to receive data from sender, check sender's logs for details
+[0m[32m[DEBUG] [1636311243.217807]: [/hal9003/camera_node/image/compressed] failed to receive incoming message : unable to receive data from sender, check sender's logs for details
+[0mTraceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/wrapper.py", line 457, in loop
+    logger.info("benchmark meta", stats=context_meta.profiler.show_stats())
+  File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/profiler.py", line 76, in show_stats
+    raise ZException(msg, prefix=prefix, lines=lines,
+zuper_commons.types.exceptions.ZException: Could not find any *completed* children for prefix
+│ prefix: [38;5;75m([0m[38;5;127mroot[0m,[38;5;75m)[0m
+│  lines: [38;5;75m[][0m
+│  known: [38;5;75m[][0m
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/wrapper.py", line 287, in run_loop
+    loop(my_logger, node_name, fi, fo, node, protocol, tin, tout, config=config, fi_desc=fin,
+  File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/wrapper.py", line 480, in loop
+    raise InternalProblem(msg) from e  # XXX
+zuper_nodes.structures.InternalProblem: Unexpected error:
+
+| Traceback (most recent call last):
+|   File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/wrapper.py", line 457, in loop
+|     logger.info("benchmark meta", stats=context_meta.profiler.show_stats())
+|   File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/profiler.py", line 76, in show_stats
+|     raise ZException(msg, prefix=prefix, lines=lines,
+| zuper_commons.types.exceptions.ZException: Could not find any *completed* children for prefix
+| │ prefix: [38;5;75m([0m[38;5;127mroot[0m,[38;5;75m)[0m
+| │  lines: [38;5;75m[][0m
+| │  known: [38;5;75m[][0m
+| 
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/code/submission_ws/src/agent/src/solution.py", line 107, in <module>
+    wrap_direct(node=node, protocol=protocol, args=[])
+  File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/interface.py", line 25, in wrap_direct
+    run_loop(node, protocol, args)
+  File "/usr/local/lib/python3.8/dist-packages/zuper_nodes_wrapper/wrapper.py", line 301, in run_loop
+    raise Exception(msg) from e
+Exception: Error in node ROSTemplateAgent
+[31m================================================================================REQUIRED process [agent_node-1] has died!
+process has died [pid 197, exit code 1, cmd /code/submission_ws/src/agent/src/solution.py __name:=agent_node __log:=/tmp/log/ea41d160-3ffb-11ec-80ab-0242ac110003/agent_node-1.log].
+log file: /tmp/log/ea41d160-3ffb-11ec-80ab-0242ac110003/agent_node-1*.log
+Initiating shutdown!
+================================================================================[0m
+[agent_node-1] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m
