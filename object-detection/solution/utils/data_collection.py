@@ -26,9 +26,17 @@ IMAGE_SIZE=416
 SPLIT_PERCENTAGE=0.8
 
 
+# we interate over several maps to get more diverse data
+possible_maps = [
+    "loop_pedestrians",
+    "udem1",
+    "loop_dyn_duckiebots",
+    "zigzag_dists"
+]
+
 npz_index = 0
 
-def save_npz(img, boxes, classes):
+def save_npz(img, boxes, classes, map_id):
     global npz_index
 
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -38,22 +46,16 @@ def save_npz(img, boxes, classes):
         for i in range(len(boxes)):
             f.write(f"{classes[i]} "+" ".join(map(str,boxes[i]))+"\n")
             
-    print(f"COLLECTED IMAGE #{npz_index}")
+    print(f"COLLECTED IMAGE #{npz_index} for map num #{map_id} #{possible_maps[map_id]} ")
 
     npz_index += 1
 
 # some setup
 seed(123)
-MAX_STEPS = 1000
+MAX_STEPS = 2500
 nb_of_steps = 0
 
-# we interate over several maps to get more diverse data
-possible_maps = [
-    "loop_pedestrians",
-    "udem1",
-    "loop_dyn_duckiebots",
-    "zigzag_dists"
-]
+
 env_id = 0
 env = None
 while True:
@@ -101,14 +103,19 @@ while True:
         #    pt2 = (box[2], box[3])
         #    cv2.rectangle(obs, pt1, pt2, (255,0,0), 2)
 
-        save_npz(obs, boxes, classes)
-        nb_of_steps += 1
-        inner_steps += 1
+        # If there are no boxes, don't save this observation, and don't increment our counters
+        if len(boxes) > 0:
+            save_npz(obs, boxes, classes, env_id)
+            nb_of_steps += 1
+            inner_steps += 1
 
         if done or inner_steps % 100 == 0:
             env.reset()
+            
     if nb_of_steps >= MAX_STEPS:
         break
+    
+    env_id = env_id+1 # iterate through all environments
 
 print("NOW GOING TO MOVE IMAGES INTO TRAIN AND VAL")
 all_image_names = [str(idx) for idx in range(npz_index)]
