@@ -20,7 +20,7 @@ def MODEL_NAME():
 def NUMBER_FRAMES_SKIPPED():
     # todo change this number to drop more frames
     # (must be a positive integer)
-    return 0
+    return 2
 
 # In[2]:
 
@@ -30,12 +30,11 @@ def filter_by_classes(clas):
     # Right now, this returns True for every object's class
     # Change this to only return True for duckies!
     # In other words, returning False means that this prediction is ignored.
-    return True
     if clas == 0:
-        print("Duckie")
+        print("\nDuckie")
         return True
     else:
-        print("NOT a Duckie")
+        print("\nNOT a Duckie")
         return False
 
 # In[4]:
@@ -46,12 +45,11 @@ def filter_by_scores(scor):
     # Right now, this returns True for every object's confidence
     # Change this to filter the scores, or not at all
     # (returning True for all of them might be the right thing to do!)
-    return True
     if scor > 0.5:
-        print("Confidence is high")
+        print("\nConfidence is high")
         return True
     else:
-        print("Confidence is low, ignored")
+        print("\nConfidence is low, ignored")
         return False
 
 # In[5]:
@@ -60,8 +58,7 @@ def filter_by_scores(scor):
 # `bbox` is the bounding box of a prediction, in xyxy format
 # So it is of the shape (leftmost x pixel, topmost y pixel, rightmost x pixel, bottommost y pixel)
 def filter_by_bboxes(bbox):
-    # Like in the other cases, return False if the bbox should not be considered.
-    return True
+    # Like in the other cases, return False if the bbox should not be considered.    
     IMAGE_SIZE = 416
     width = bbox[2]-bbox[0]
     height = bbox[3]-bbox[1]
@@ -75,15 +72,15 @@ def filter_by_bboxes(bbox):
     heightTooSmall = height < (TOO_SMALL_FRACTION*IMAGE_SIZE)
 
     if widthTooSmall and heightTooSmall:
-        print("Too small or far. Disregard")
+        print("\nToo small or far. Disregard")
         return False
     elif inLeftThird and inUpperHalf:
-        print("Too far to the left and up. Disregard")
+        print("\nToo far to the left and up. Disregard")
         return False        
     elif inRightThird and inUpperHalf:
-        print("Too far to the right and up. Disregard")
+        print("\nToo far to the right and up. Disregard")
         return False   
     else:
-        print("Found a duckie!")
+        print("\nFound a duckie!")
         return True
 
