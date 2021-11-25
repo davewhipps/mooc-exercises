@@ -100,7 +100,7 @@ class ObjectDetectionNode(DTROS):
         
         #If using YOLOV5, need to convert to RGB
         # https://stackoverflow.com/c/duckietown/questions/2405
-        #image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
         bboxes, classes, scores = self.model_wrapper.predict(image)
 
