@@ -36,13 +36,28 @@ def histogram_predict(belief, dt, left_encoder_ticks, right_encoder_ticks, grid_
         delta_t = dt
         
         # TODO calculate v and w from ticks using kinematics. You will need `robot_spec`
-        v = 0.0 # replace this with a function that uses the encoder 
-        w = 0.0 # replace this with a function that uses the encoder
+        alpha = 2*np.pi/robot_spec['encoder_resolution'] #ticks per radian
+        rotation_wheel_left = alpha*left_encoder_ticks # total rotation of left wheel 
+        rotation_wheel_right = alpha*right_encoder_ticks # total rotation of right wheel
+
+        # What is the distance travelled by each wheel?
+        R = robot_spec['wheel_radius']
+        d_left = R*rotation_wheel_left
+        d_right = R*rotation_wheel_right
+        d_A = (d_left + d_right)/2 # robot distance travelled in robot frame [meters]
+
+        baseline_wheel2wheel = robot_spec['wheel_baseline']
+        Delta_Theta = (d_right-d_left)/baseline_wheel2wheel # angle robot has rotated
+        
+        v = d_A / delta_t
+        w = Delta_Theta / delta_t
         
         # TODO propagate each centroid forward using the kinematic function
-        d_t = grid_spec['d'] # replace this with something that adds the new odometry
-        phi_t = grid_spec['phi'] # replace this with something that adds the new odometry
-
+        d_t = grid_spec['d'] + v * delta_t
+        phi_t = grid_spec['phi'] + w * delta_t
+        
+        print("shape of phi_t: is", phi_t.shape)
+        
         p_belief = np.zeros(belief.shape)
 
         # Accumulate the mass for each cell as a result of the propagation step
@@ -60,8 +75,8 @@ def histogram_predict(belief, dt, left_encoder_ticks, right_encoder_ticks, grid_
                         continue
                     
                     # TODO Now find the cell where the new mass should be added
-                    i_new = i # replace with something that accounts for the movement of the robot
-                    j_new = j # replace with something that accounts for the movement of the robot
+                    i_new = int(i + d_t[i,j]) # replace with something that accounts for the movement of the robot
+                    j_new = int(j + phi_t[i,j]) # replace with something that accounts for the movement of the robot
 
                     p_belief[i_new, j_new] += belief[i, j]
 
@@ -139,11 +154,25 @@ def generate_vote(segment, road_spec):
 # In[ ]:
 
 
+import math
 def generate_measurement_likelihood(segments, road_spec, grid_spec):
 
     # initialize measurement likelihood to all zeros
     measurement_likelihood = np.zeros(grid_spec['d'].shape)
-
+    
+    # grid_spec = {
+    #     "d": d,
+    #     "phi": phi,
+    #     "delta_d": hp['delta_d'],
+    #     "delta_phi": hp['delta_phi'],
+    #     "d_min": hp['d_min'],
+    #     "d_max": hp['d_max'],
+    #     "phi_min": hp['phi_min'],
+    #     "phi_max": hp['phi_max'],
+    # }
+    NUM_D_CELLS = math.ceil((grid_spec['d_max']-grid_spec['d_min'])/grid_spec['delta_d'])
+    NUM_P_CELLS = math.ceil((grid_spec['phi_max']-grid_spec['phi_min'])/grid_spec['delta_phi'])
+ 
     for segment in segments:
         d_i, phi_i = generate_vote(segment, road_spec)
 
@@ -151,10 +180,24 @@ def generate_measurement_likelihood(segments, road_spec, grid_spec):
         if d_i > grid_spec['d_max'] or d_i < grid_spec['d_min'] or phi_i < grid_spec['phi_min'] or phi_i > grid_spec['phi_max']:
             continue
 
-        # TODO find the cell index that corresponds to the measurement d_i, phi_i
         i = 1 # replace this
         j = 1 # replace this
+
+        # TODO find the cell index that corresponds to the measurement d_i, phi_i
+        for i_test in range(NUM_D_CELLS):
+            d_cell_min = grid_spec['d_min'] + i_test * grid_spec['delta_d'] 
+            d_cell_max = d_cell_min + grid_spec['delta_d']
+            if d_i > d_cell_min and d_i <= d_cell_max:
+                i = i_test
+                break
         
+        for j_test in range(NUM_P_CELLS):
+            p_cell_min = grid_spec['phi_min'] + j_test * grid_spec['delta_phi']
+            p_cell_max = p_cell_min + grid_spec['delta_phi']
+            if phi_i > p_cell_min and phi_i <= p_cell_max:
+                j = j_test
+                break
+                
         # Add one vote to that cell
         measurement_likelihood[i, j] += 1
 
@@ -176,7 +219,13 @@ def histogram_update(belief, segments, road_spec, grid_spec):
 
     if measurement_likelihood is not None:
         # TODO: combine the prior belief and the measurement likelihood to get the posterior belief
-        # Don't forget that you may need to normalize to ensure that the output is valid probability distribution
-        belief = measurement_likelihood # replace this with something that combines the belief and the measurement_likelihood
+        belief = np.multiply(measurement_likelihood, belief) # elementwise multiplication
+    
+    if np.sum(belief) <= 0:
+        belief = np.copy(measurement_likelihood)
+        
+    # Don't forget that you may need to normalize to ensure that the output is valid probability distribution        
+    belief /= np.sum(belief)
+
     return (measurement_likelihood, belief)
 
